@@ -1,0 +1,29 @@
+.textBani {
+    font-size: 1.8rem;
+}
+
+.textBalance {
+    font-size: 1.2rem;
+}
+
+.simbol {
+    font-size: 1.5rem;
+}
+
+#gamble-container {
+    z-index: 99;
+    transform: translateX(-1rem);
+    transform: translateY(-50rem);
+    font-weight: 500;
+    border-style: solid;
+    border-width: 1rem;
+    scale: 0.5;
+    padding: -20rem;
+    margin: -20rem
+}
+
+#id12 {}
+
+#cards {
+    scale: 0.15;
+}
