@@ -48,6 +48,8 @@ The final purpose of the app is to process as much data as possible regarding pl
 
 * implement a web system which allows multiple instances of the casino to run at the same time, automatically adjusting the RTP to each one so that the overall RTP of the system is maintained
 
+and while school projects and exams have put the development of this app on hold, I'm always excited to find time to work on this project.
+
 ## How to use the app
 
 Just clone the repo and run index.html and game away!
