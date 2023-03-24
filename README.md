@@ -17,7 +17,7 @@ While this started as just a fun project to kill a weekend afternoon, it quickly
 
 ## Implementation Details
 
-The app.js is the main script processing all the logic and making sure everything works correctly. Coming from a C++ background, I wanted to work with bi-dimensional arrays. The whole app is structured around the slots being converted to one big matrix. I found it helped a lot with the following maths. The paylines, additional wins and changing the values of the slots are also handled here.
+The app.js is the main script processing all the logic and making sure everything works correctly. I wanted to work with bi-dimensional arrays. The whole app is structured around the slots being converted to one big matrix. I found it helped a lot with the following maths. The paylines, additional wins and changing the values of the slots are also handled here.
 
 The script is broken down into several functions, as granular and functional as I could design them. I looked nowhere for inspiration when starting the design of the app, and as that has certainly proven challenging it's equally rewarding.
 
