@@ -9,7 +9,6 @@ function getCoordinates(array, char) {
 }
 
 
-
 function v1(element) {
     let x = getCoordinates(matriceSimboluri, element)[0];
     let y = getCoordinates(matriceSimboluri, element)[1];

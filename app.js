@@ -5,6 +5,74 @@ const resetButton = document.querySelector("#resetButton");
 
 let simboluriAfisate = document.querySelectorAll(".simbol");
 
+const balanceElement = document.querySelector('#balance');
+const betElement = document.querySelector('#bet');
+const lastWinElement = document.querySelector('#lastWin')
+
+const panel = document.querySelector("#panel");
+const rows = document.querySelectorAll(".gambleRow")
+
+
+let balance = parseInt(balanceElement.innerHTML);
+let bet = parseInt(betElement.innerHTML);
+let lastWin = parseInt(lastWinElement.innerHTML);
+
+
+
+function addWin(winnings)
+{
+    updateElement(balanceElement,winnings + balance);
+    balance += winnings;
+}
+
+function newBalance()
+{
+    return balance;
+}
+
+
+function updateElement(element, info) {
+    element.innerHTML = info;
+}
+
+const up = document.querySelector('#up');
+const down = document.querySelector('#down');
+
+
+up.addEventListener('click', (e) => {
+    if (bet <= balance - 10) {
+        bet = bet + 10;
+        updateElement(betElement, bet)
+    }
+
+
+})
+
+down.addEventListener('click', (e) => {
+    if (bet >= 10) {
+        bet = bet - 10;
+        updateElement(betElement, bet)
+    }
+
+
+})
+
+function lastWinUpdate(winnings) {
+    updateElement(lastWinElement, winnings);
+}
+
+function gamble(sum) {
+
+}
+
+function playHand(bet) {
+    console.log("Balance din logicabani:" + balance);
+    updateElement(balanceElement, balance - bet)
+    balance -= bet;
+}
+
+
+
 let textSimboluri = [];
 let matriceSimboluri;
 
@@ -77,12 +145,10 @@ function diagonal() {
 function winProcedure(winningArray) {
 
     let winnings = 0;
-    winnings += winningArray.length * bet;
+    winnings += winningArray.length * bet * 1000;
     lastWinUpdate(winnings);
-    console.log(winnings)
-    updateElement(balanceElement, winnings + balance);
+   addWin(winnings);
     for (let i = 0; i < winningArray.length; i++) {
-        //console.log(element)
         winningArray[i].style.fontWeight = 'bold';
         winningArray[i].style.color = 'red';
     }
@@ -189,10 +255,10 @@ function win() {
 }
 
 spinButton.addEventListener('click', (e) => {
+    console.log("Balance din event listener:" + balance)
     if (balance >= bet) {
         playHand(bet);
         updateSimboluri();
-        //simboluriHack();
         if (winArray = win()) {
 
             winProcedure(winArray);
