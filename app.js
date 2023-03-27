@@ -101,11 +101,11 @@ function line(matrix, line) {
 
     let v1 = matrix[x][y + 1];
 
-    while (element.innerHTML === v1.innerHTML && y < 2) {
+    while (element.innerHTML === v1.innerHTML && y < 4) {
         winLine.push(v1);
         element = v1;
         y++;
-        if (y < 2)
+        if (y < 4)
             v1 = matrix[x][y + 1];
     }
     if (winLine.length === 3) {
@@ -124,7 +124,7 @@ function diagonal() {
     let y = 0;
     let winLine = [];
     winLine.push(matriceSimboluri[x][y])
-    while (x < 2 && y < 2) {
+    while (x < 4 && y < 4) {
         if (matriceSimboluri[x][y].innerHTML === matriceSimboluri[x + 1][y + 1].innerHTML) {
             winLine.push(matriceSimboluri[x + 1][y + 1]);
 
@@ -132,8 +132,8 @@ function diagonal() {
         x++;
         y++;
     }
-    if (winLine.length === 3) {
-        for (let i = 0; i < 3; i++) {
+    if (winLine.length >= 3) {
+        for (let i = 0; i < winLine.length; i++) {
             mark(winLine[i]);
         }
         return winLine;
@@ -168,9 +168,9 @@ function resetElements() {
 function matrixRepresentation(array) {
     let matrix = [];
     let index = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         matrix[i] = [];
-        for (var j = 0; j < 3; j++) {
+        for (var j = 0; j < 5; j++) {
             matrix[i][j] = array[index];
             index++;
         }
@@ -194,9 +194,9 @@ function getCoordinates(array, char) {
 
 function lookFor(simbol, linie) {
     let winAdditions = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         
-            for (let j = 0; j < 3; j++) {
+            for (let j = 0; j < 5; j++) {
                 
                 if (matriceSimboluri[i][j].innerHTML === simbol.innerHTML && Math.abs(i - linie) === 1) {
                     winAdditions.push(matriceSimboluri[i][j])
@@ -223,10 +223,11 @@ function win() {
     let amWin = 0;
     if (winLocal = diagonal()) {
         amWin = 1;
-        for (element of winLocal) {
-            if (vecin(element)) {
-                winLocal.push(vecin(element));
-                mark(vecin(element));
+        let simbolulBuclucas = winLocal[0];
+        let winAdditions = lookFor(simbolulBuclucas, i)
+        if (winAdditions.length) {
+            for (element of winAdditions) {
+                winLocal.push(element)
             }
         }
         ok++;
@@ -234,7 +235,7 @@ function win() {
 
 
     if (amWin == 0) {
-        for (let i = 0; i < 3 && haveWinningLine === 0; i++) {
+        for (let i = 0; i < 5 && haveWinningLine === 0; i++) {
             if (line(matriceSimboluri, i)) {
                 haveWinningLine = 1;
                 winLocal = line(matriceSimboluri, i)
