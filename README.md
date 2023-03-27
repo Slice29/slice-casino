@@ -21,7 +21,9 @@ The app.js is the main script processing all the logic and making sure everythin
 
 The script is broken down into several functions, as granular and functional as I could design them. I looked nowhere for inspiration when starting the design of the app, and as that has certainly proven challenging it's equally rewarding.
 
-It's a 3x3 slot as of right now, with all the slots from the dice and roll game being possible combinations on the slot grid.
+It's a 4x5 slot as of right now, with all the slots from the dice and roll game being possible combinations on the slot grid.
+
+The wins are huge, until I can implement all the proper paying lines.
 
 The logicabani.js script handles anything that I thought would clutter up the app.js script, and more of the betting and payout logic.
 
@@ -35,8 +37,6 @@ The final purpose of the app is to process as much data as possible regarding pl
 * the mathematical relevance of the size of the grid and paylines in regards to actual payout
 
 ## Plans for the future
-
-* expanding the application so that it's a 3x5 grid
 
 * implementing a functional Gamble system after a win
 
@@ -56,9 +56,6 @@ Just clone the repo and run index.html and game away!
 
 After a win, press the reset button to keep playing.
 
-**Disclaimer**
-
-In this latest gitHub push version the wins are not added to the balance. When you run out of money to gamble, just refresh the app.
 
 
 
