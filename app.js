@@ -129,15 +129,14 @@ function getCoordinates(array, char) {
 function lookFor(simbol, linie) {
     let winAdditions = [];
     for (let i = 0; i < 3; i++) {
-        if (i !== linie) {
+        
             for (let j = 0; j < 3; j++) {
-                // console.log(i, j, matriceSimboluri[i][j].innerHTML);
+                
                 if (matriceSimboluri[i][j].innerHTML === simbol.innerHTML && Math.abs(i - linie) === 1) {
                     winAdditions.push(matriceSimboluri[i][j])
                     mark(matriceSimboluri[i][j]);
                 }
             }
-        }
     }
     for (element of winAdditions) {
         if (vecin(element)) {
